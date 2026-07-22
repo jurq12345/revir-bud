@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,500;9..144,600;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<script src="script.js" defer></script>
 </head>
 <body>
 
@@ -116,10 +117,14 @@
       </div>
     </div>
 
-    <form onsubmit="event.preventDefault(); document.getElementById('form-ok').style.display='block'; this.reset();">
+    <form id="contact-form">
+      <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+      <input type="hidden" name="subject" value="Nowe zapytanie ze strony REVIR-BUD">
+      <input type="checkbox" name="botcheck" style="display:none" tabindex="-1" autocomplete="off">
+
       <div class="field">
         <label for="usluga">Jakiej usługi szukasz?</label>
-        <select id="usluga" required>
+        <select id="usluga" name="usluga" required>
           <option value="" disabled selected>Wybierz zakres prac</option>
           <option>Gładzie i malowanie</option>
           <option>Układanie płytek</option>
@@ -135,23 +140,24 @@
       <div class="row2">
         <div class="field">
           <label for="imie">Imię i nazwisko</label>
-          <input id="imie" type="text" placeholder="Jan Kowalski" required>
+          <input id="imie" name="imie" type="text" placeholder="Jan Kowalski" required>
         </div>
         <div class="field">
           <label for="tel">Numer telefonu</label>
-          <input id="tel" type="tel" placeholder="+48 000 000 000" required>
+          <input id="tel" name="telefon" type="tel" placeholder="+48 000 000 000" required>
         </div>
       </div>
       <div class="field">
         <label for="mail">Adres e-mail</label>
-        <input id="mail" type="email" placeholder="jan@przyklad.pl" required>
+        <input id="mail" name="email" type="email" placeholder="jan@przyklad.pl" required>
       </div>
       <div class="field">
         <label for="opis">Opis prac (opcjonalnie)</label>
-        <textarea id="opis" placeholder="Metraż, termin, dodatkowe informacje..."></textarea>
+        <textarea id="opis" name="opis" placeholder="Metraż, termin, dodatkowe informacje..."></textarea>
       </div>
       <button type="submit">Wyślij zapytanie</button>
       <p class="form-note" id="form-ok" style="display:none;color:var(--gold-bright);">Dziękujemy! Odezwiemy się najszybciej jak to możliwe.</p>
+      <p class="form-note" id="form-error" style="display:none;color:#e07a5f;">Coś poszło nie tak. Spróbuj ponownie lub zadzwoń bezpośrednio.</p>
     </form>
   </div>
 </section>
