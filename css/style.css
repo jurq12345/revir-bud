@@ -152,6 +152,26 @@ section{position:relative;z-index:1;padding:90px 32px;}
 .service p{font-size:0.86rem;color:var(--ink-dim);}
 @media(max-width:760px){ .services{grid-template-columns:1fr;} }
 
+/* ---------- GALLERY ---------- */
+.gallery{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:16px;
+  max-width:1000px;margin:0 auto;
+}
+.gallery-item{
+  aspect-ratio:4/3;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+  background:var(--panel-2);
+  border:1px dashed var(--line);
+  border-radius:4px;
+  color:var(--ink-dim);
+  transition:border-color .2s,color .2s;
+}
+.gallery-item:hover{border-color:var(--gold);color:var(--gold);}
+.gallery-item svg{width:34px;height:34px;}
+.gallery-item span{font-size:0.78rem;font-weight:600;letter-spacing:0.02em;}
+@media(max-width:760px){ .gallery{grid-template-columns:1fr 1fr;} }
+@media(max-width:480px){ .gallery{grid-template-columns:1fr;} }
+
 /* ---------- WHY US STRIP ---------- */
 .why{
   background:var(--panel);
