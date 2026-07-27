@@ -245,4 +245,5 @@ footer{
   padding:36px 32px;text-align:center;
   color:var(--dark-ink-dim);font-size:0.82rem;
 }
+.footer-mark{height:40px;width:auto;display:block;margin:0 auto 14px;}
 footer strong{color:var(--gold-bright);}
