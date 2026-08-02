@@ -78,6 +78,24 @@ nav{
   position:relative;z-index:1;
   padding:110px 32px 90px;
   text-align:center;
+  overflow:hidden;
+}
+.hero-video{
+  position:absolute;inset:0;z-index:-2;
+  width:100%;height:100%;
+  object-fit:cover;object-position:center;
+  filter:saturate(0.75) brightness(0.8);
+  pointer-events:none;
+}
+.hero-overlay{
+  position:absolute;inset:0;z-index:-1;
+  background:
+    radial-gradient(ellipse 900px 500px at 15% -5%, rgba(124,31,209,0.18), transparent 60%),
+    radial-gradient(ellipse 700px 500px at 100% 20%, rgba(242,183,5,0.14), transparent 55%),
+    rgba(18,12,28,0.88);
+}
+@media (prefers-reduced-motion: reduce){
+  .hero-video{display:none;}
 }
 .eyebrow{
   display:inline-flex;align-items:center;gap:10px;
