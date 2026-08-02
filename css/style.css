@@ -177,6 +177,45 @@ section{position:relative;z-index:1;padding:90px 32px;}
 @media(max-width:760px){ .gallery{grid-template-columns:1fr 1fr;} }
 @media(max-width:480px){ .gallery{grid-template-columns:1fr;} }
 
+/* ---------- CALCULATOR ---------- */
+.calc-box{
+  max-width:1000px;margin:0 auto;
+  display:grid;grid-template-columns:1.1fr 1fr;gap:0;
+  background:var(--panel);border:1px solid var(--line);border-radius:4px;
+  overflow:hidden;
+}
+.calc-fields{padding:38px;}
+.calc-fields button{
+  width:100%;margin-top:6px;
+  background:linear-gradient(135deg,var(--gold-bright),var(--gold));
+  color:#1a1408;padding:16px;border:none;border-radius:3px;
+  font-weight:700;font-size:0.95rem;letter-spacing:0.02em;
+  cursor:pointer;transition:transform .2s;
+}
+.calc-fields button:hover{transform:translateY(-2px);}
+.calc-result{
+  background:var(--panel-2);padding:38px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  text-align:center;gap:10px;
+  border-left:1px solid var(--line);
+}
+.calc-result-label{font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);font-weight:700;}
+.calc-result strong{
+  font-family:'Fraunces',serif;font-weight:600;font-size:1.7rem;color:var(--ink);
+  line-height:1.2;
+}
+.calc-note{font-size:0.82rem;color:var(--ink-dim);margin-bottom:8px;}
+.calc-disclaimer{
+  max-width:700px;margin:24px auto 0;text-align:center;
+  font-size:0.78rem;color:var(--ink-dim);
+}
+.calc-disclaimer a{color:var(--gold);font-weight:600;}
+.calc-disclaimer a:hover{color:var(--gold-bright);}
+@media(max-width:800px){
+  .calc-box{grid-template-columns:1fr;}
+  .calc-result{border-left:none;border-top:1px solid var(--line);}
+}
+
 /* ---------- WHY US STRIP ---------- */
 .why{
   position:relative;z-index:1;

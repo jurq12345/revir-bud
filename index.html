@@ -24,6 +24,7 @@
     <div class="nav-links">
       <a href="#uslugi">Usługi</a>
       <a href="#realizacje">Realizacje</a>
+      <a href="#kalkulator">Kalkulator</a>
       <a href="#dlaczego">Dlaczego my?</a>
       <a href="#kontakt">Kontakt</a>
     </div>
@@ -116,6 +117,54 @@
       <img src="assets/images/budowy/realizacja-06.jpeg" alt="Kontrola jakości prac budowlanych" loading="lazy">
     </div>
   </div>
+</section>
+
+<section id="kalkulator">
+  <div class="section-head">
+    <div class="eyebrow">Wycena</div>
+    <h2>Kalkulator kosztów wykończenia</h2>
+    <p>Orientacyjny koszt robocizny w zależności od rodzaju prac, metrażu i standardu wykończenia.</p>
+  </div>
+
+  <div class="calc-box">
+    <div class="calc-fields">
+      <div class="field">
+        <label for="calc-usluga">Rodzaj usługi</label>
+        <select id="calc-usluga">
+          <option value="glazie" data-min="35" data-max="55">Gładzie i malowanie</option>
+          <option value="plytki" data-min="90" data-max="140">Układanie płytek</option>
+          <option value="gk" data-min="80" data-max="120">Zabudowy g-k / sufity podwieszane</option>
+          <option value="panele" data-min="40" data-max="60">Panele i podłogi</option>
+          <option value="lazienka" data-min="700" data-max="1100">Remont łazienki (kompleksowy)</option>
+          <option value="podklucz" data-min="900" data-max="1400">Wykończenie „pod klucz”</option>
+        </select>
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label for="calc-metraz">Metraż (m²)</label>
+          <input type="number" id="calc-metraz" min="1" step="1" placeholder="np. 50">
+        </div>
+        <div class="field">
+          <label for="calc-standard">Standard wykończenia</label>
+          <select id="calc-standard">
+            <option value="1">Standardowy</option>
+            <option value="1.25">Podwyższony</option>
+            <option value="1.6">Premium</option>
+          </select>
+        </div>
+      </div>
+      <button type="button" id="calc-btn">Oblicz szacunkowy koszt</button>
+    </div>
+
+    <div class="calc-result">
+      <span class="calc-result-label">Szacunkowy koszt robocizny</span>
+      <strong id="calc-result-value">—</strong>
+      <p class="calc-note" id="calc-note">Wybierz usługę i podaj metraż, aby zobaczyć wycenę.</p>
+      <a href="#kontakt" class="btn-primary" id="calc-cta">Poproś o dokładną wycenę</a>
+    </div>
+  </div>
+
+  <p class="calc-disclaimer">* Podane kwoty są orientacyjne i obejmują koszt robocizny bez materiału. Duże inwestycje budowlane i projekty niestandardowe wyceniamy indywidualnie — <a href="#kontakt">skontaktuj się z nami</a>.</p>
 </section>
 
 <div class="why" id="dlaczego">
