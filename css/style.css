@@ -103,7 +103,6 @@ nav{
   color:var(--gold);text-transform:uppercase;
   margin-bottom:26px;
 }
-.eyebrow::before,.eyebrow::after{content:'';width:26px;height:1px;background:var(--gold);opacity:.6;}
 .hero h1{
   font-size:clamp(2.6rem,6.2vw,4.6rem);
   line-height:1.04;
