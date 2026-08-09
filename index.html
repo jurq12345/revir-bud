@@ -273,6 +273,12 @@
         <label for="opis">Opis prac (opcjonalnie)</label>
         <textarea id="opis" name="opis" placeholder="Metraż, termin, dodatkowe informacje..."></textarea>
       </div>
+      <div class="field">
+        <label for="dokumenty">Załącz dokumenty (opcjonalnie)</label>
+        <input id="dokumenty" name="dokumenty" type="file" multiple
+          accept=".pdf,.doc,.docx,.xls,.xlsx,.ppt,.pptx">
+        <p class="form-note" id="upload-note" style="margin-top:8px;text-align:left;"></p>
+      </div>
       <button type="submit">Wyślij zapytanie</button>
       <p class="form-note" id="form-ok" style="display:none;color:var(--gold-bright);">Dziękujemy! Odezwiemy się najszybciej jak to możliwe.</p>
       <p class="form-note" id="form-error" style="display:none;color:#e07a5f;">Coś poszło nie tak. Spróbuj ponownie lub zadzwoń bezpośrednio.</p>

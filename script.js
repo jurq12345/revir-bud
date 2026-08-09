@@ -5,6 +5,37 @@ document.addEventListener('DOMContentLoaded', () => {
   const okMsg = document.getElementById('form-ok');
   const errorMsg = document.getElementById('form-error');
   const submitBtn = form.querySelector('button[type="submit"]');
+  const fileInput = document.getElementById('dokumenty');
+  const uploadNote = document.getElementById('upload-note');
+
+  const MAX_FILE_SIZE = 10 * 1024 * 1024;
+  const MAX_FILES = 5;
+
+  if (fileInput && uploadNote) {
+    fileInput.addEventListener('change', () => {
+      const files = [...fileInput.files];
+      uploadNote.style.color = '';
+
+      if (files.length === 0) {
+        uploadNote.textContent = '';
+        return;
+      }
+      if (files.length > MAX_FILES) {
+        uploadNote.style.color = '#e07a5f';
+        uploadNote.textContent = `Maksymalnie ${MAX_FILES} plików.`;
+        fileInput.value = '';
+        return;
+      }
+      const tooBig = files.find((f) => f.size > MAX_FILE_SIZE);
+      if (tooBig) {
+        uploadNote.style.color = '#e07a5f';
+        uploadNote.textContent = `Plik "${tooBig.name}" przekracza 10 MB.`;
+        fileInput.value = '';
+        return;
+      }
+      uploadNote.textContent = files.map((f) => f.name).join(', ');
+    });
+  }
 
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
@@ -15,15 +46,45 @@ document.addEventListener('DOMContentLoaded', () => {
     submitBtn.textContent = 'Wysyłanie...';
 
     try {
+      let dokumentyLinks = '';
+      const files = fileInput && fileInput.files ? [...fileInput.files] : [];
+
+      if (files.length > 0) {
+        submitBtn.textContent = 'Przesyłanie plików...';
+        const uploadData = new FormData();
+        files.forEach((file) => uploadData.append('files', file));
+
+        const uploadResponse = await fetch('/api/upload', {
+          method: 'POST',
+          body: uploadData,
+        });
+        const uploadResult = await uploadResponse.json();
+
+        if (!uploadResult.success) {
+          throw new Error(uploadResult.error || 'Nie udało się przesłać plików.');
+        }
+
+        dokumentyLinks = uploadResult.files
+          .map((f) => `${f.name}: ${location.origin}/api/files/${encodeURIComponent(f.key)}`)
+          .join('\n');
+      }
+
+      submitBtn.textContent = 'Wysyłanie...';
+
+      const payload = Object.fromEntries(new FormData(form));
+      delete payload.dokumenty;
+      if (dokumentyLinks) payload.dokumenty = dokumentyLinks;
+
       const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(Object.fromEntries(new FormData(form))),
+        body: JSON.stringify(payload),
       });
       const result = await response.json();
 
       if (result.success) {
         form.reset();
+        if (uploadNote) uploadNote.textContent = '';
         okMsg.style.display = 'block';
       } else {
         errorMsg.style.display = 'block';

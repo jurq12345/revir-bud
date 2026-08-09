@@ -324,6 +324,13 @@ form{
   border-color:var(--gold);
 }
 .field textarea{resize:vertical;min-height:90px;}
+.field input[type="file"]{padding:10px 14px;font-size:0.85rem;color:var(--ink-dim);}
+.field input[type="file"]::file-selector-button{
+  background:linear-gradient(135deg,var(--gold-bright),var(--gold));
+  color:#1a1408;border:none;border-radius:3px;padding:8px 14px;
+  font-weight:700;font-size:0.78rem;letter-spacing:0.02em;
+  margin-right:12px;cursor:pointer;
+}
 .row2{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
 form button{
   width:100%;margin-top:6px;
