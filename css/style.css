@@ -39,8 +39,7 @@ body::before{
   content:'';
   position:fixed;inset:0;
   background:
-    radial-gradient(ellipse 900px 500px at 15% -5%, rgba(124,31,209,0.12), transparent 60%),
-    radial-gradient(ellipse 700px 500px at 100% 20%, rgba(242,183,5,0.16), transparent 55%);
+    radial-gradient(ellipse 900px 500px at 15% -5%, rgba(124,31,209,0.12), transparent 60%);
   pointer-events:none;
   z-index:0;
 }
@@ -91,7 +90,6 @@ nav{
   position:absolute;inset:0;z-index:-1;
   background:
     radial-gradient(ellipse 900px 500px at 15% -5%, rgba(124,31,209,0.18), transparent 60%),
-    radial-gradient(ellipse 700px 500px at 100% 20%, rgba(242,183,5,0.14), transparent 55%),
     rgba(18,12,28,0.88);
 }
 @media (prefers-reduced-motion: reduce){
